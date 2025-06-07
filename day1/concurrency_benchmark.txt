@@ -1,0 +1,23 @@
+
+=== Performance Comparison Report ===
+Test Parameters:
+- URLs: 10
+- Runs: 3
+- Average Latency: 0.17s per request
+
+Results (average time):
+1. Synchronous: 23.8244 seconds
+   • Slower by 6.3x than Async
+   
+2. ThreadPool (2 max workers): 5.7695 seconds
+   • 4.1x faster than Sync
+   
+3. AsyncIO: 3.7770 seconds
+   • 6.3x faster than Sync
+   • 1.5x faster than Threaded
+
+Conclusion:
+For I/O-bound tasks like HTTP requests:
+- AsyncIO provides the best performance
+- ThreadPool is simpler but less efficient
+- Synchronous should only be used for few/simple tasks
