@@ -50,22 +50,22 @@ def exercise_1_vector_operations():
     
     # TODO 1.1: 计算向量A的L2范数
     # 提示：使用 np.linalg.norm() 或 np.sqrt(np.sum(vector_a**2))
-    l2_norm_a = None  # 请完成这个计算
+    l2_norm_a = np.linalg.norm(vector_a)  # 请完成这个计算
     print(f"向量A的L2范数: {l2_norm_a}")
     
     # TODO 1.2: 计算向量A和向量B的点积
     # 提示：使用 np.dot() 或 np.sum(vector_a * vector_b)
-    dot_product = None  # 请完成这个计算
+    dot_product = np.dot(vector_a, vector_b)  # 请完成这个计算
     print(f"向量A和B的点积: {dot_product}")
     
     # TODO 1.3: 计算向量A和向量B的余弦相似度
     # 提示：cos_sim = dot_product / (norm_a * norm_b)
-    cosine_similarity = None  # 请完成这个计算
+    cosine_similarity = dot_product / (l2_norm_a * np.linalg.norm(vector_b))  # 请完成这个计算
     print(f"余弦相似度: {cosine_similarity}")
     
     # TODO 1.4: 计算向量A和向量B的欧几里得距离
     # 提示：使用 np.linalg.norm(vector_a - vector_b)
-    euclidean_distance = None  # 请完成这个计算
+    euclidean_distance = np.linalg.norm(vector_a - vector_b)  # 请完成这个计算
     print(f"欧几里得距离: {euclidean_distance}")
     
     return {
