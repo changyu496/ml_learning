@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
-第4天编程练习：统计学基础（简化版）
+第4天编程练习：统计学基础（练习模板）
 时间：15-25分钟
 目标：练习今天学的3个概念
+
+请在标记的地方填写代码！
 """
 
 import numpy as np
@@ -14,7 +16,7 @@ plt.rcParams['axes.unicode_minus'] = False
 
 print("📝 第4天编程练习")
 print("=" * 30)
-print("只有3个简单练习，轻松完成！")
+print("请在TODO标记处填写你的代码！")
 print()
 
 # ==========================================
@@ -29,13 +31,17 @@ salaries = [8, 12, 15, 18, 22, 25, 28, 35, 45, 80]
 print("员工月薪数据:", salaries)
 print()
 
-# TODO: 计算平均值、中位数、标准差
-# 提示：使用 np.mean(), np.median(), np.std()
+# TODO 1.1: 计算平均值
+# 提示：使用 np.mean(salaries)
+mean_salary = 0  # 替换这行代码
 
-# 你的代码：
-mean_salary = np.mean(salaries)
-median_salary = np.median(salaries)
-std_salary = np.std(salaries)
+# TODO 1.2: 计算中位数
+# 提示：使用 np.median(salaries)
+median_salary = 0  # 替换这行代码
+
+# TODO 1.3: 计算标准差
+# 提示：使用 np.std(salaries)
+std_salary = 0  # 替换这行代码
 
 print(f"平均薪资: {mean_salary:.1f}千元")
 print(f"中位数薪资: {median_salary:.1f}千元")
@@ -43,7 +49,8 @@ print(f"薪资标准差: {std_salary:.1f}千元")
 
 # 思考题：为什么平均值比中位数大？
 print("\n🤔 思考：为什么平均值比中位数大？")
-print("答案：因为有高薪员工（80千元），拉高了平均值，但中位数不受影响")
+print("你的答案：")  
+# TODO 1.4: 在这里写出你的理解
 
 print()
 
@@ -60,23 +67,20 @@ dept_B = [5, 9, 6, 10, 4, 8, 3, 9, 7, 9]  # 波动部门
 print("部门A满意度:", dept_A)
 print("部门B满意度:", dept_B)
 
-# TODO: 计算两个部门的平均值和标准差
-# 然后分析哪个部门更稳定
+# TODO 2.1: 计算部门A的平均值和标准差
+mean_A = 0  # 替换这行代码
+std_A = 0   # 替换这行代码
 
-# 你的代码：
-mean_A = np.mean(dept_A)
-mean_B = np.mean(dept_B)
-std_A = np.std(dept_A)
-std_B = np.std(dept_B)
+# TODO 2.2: 计算部门B的平均值和标准差
+mean_B = 0  # 替换这行代码
+std_B = 0   # 替换这行代码
 
 print(f"\n部门A: 平均{mean_A:.1f}分, 标准差{std_A:.1f}")
 print(f"部门B: 平均{mean_B:.1f}分, 标准差{std_B:.1f}")
 
-# 分析结果
-if std_A < std_B:
-    print("结论: 部门A更稳定（标准差更小）")
-else:
-    print("结论: 部门B更稳定（标准差更小）")
+# TODO 2.3: 分析哪个部门更稳定
+print("\n你的分析：")
+# 在这里写出你的分析
 
 print()
 
@@ -87,78 +91,82 @@ print("🔥 练习3：正态分布应用")
 print("-" * 20)
 
 # 模拟考试成绩：平均75分，标准差12分
-np.random.seed(42)
+np.random.seed(42)  # 固定随机种子，确保结果一致
 exam_scores = np.random.normal(75, 12, 100)
 
 print("模拟100个学生的考试成绩")
-print(f"平均分: {np.mean(exam_scores):.1f}")
-print(f"标准差: {np.std(exam_scores):.1f}")
-
-# TODO: 根据68-95-99.7法则，计算各个分数段的学生比例
 mean_score = np.mean(exam_scores)
 std_score = np.std(exam_scores)
+print(f"平均分: {mean_score:.1f}")
+print(f"标准差: {std_score:.1f}")
 
-# 你的代码：
-# 计算在不同标准差范围内的学生比例
-within_1_std = np.sum((exam_scores >= mean_score - std_score) & 
-                      (exam_scores <= mean_score + std_score)) / len(exam_scores)
-within_2_std = np.sum((exam_scores >= mean_score - 2*std_score) & 
-                      (exam_scores <= mean_score + 2*std_score)) / len(exam_scores)
+# TODO 3.1: 计算1个标准差范围内的学生比例
+# 提示：
+# 1. 先计算条件：(exam_scores >= mean_score - std_score) & (exam_scores <= mean_score + std_score)
+# 2. 用 np.sum() 计算满足条件的个数
+# 3. 除以总数 len(exam_scores) 得到比例
 
-print(f"\n实际验证68-95-99.7法则:")
-print(f"1个标准差内({mean_score-std_score:.0f}-{mean_score+std_score:.0f}分): {within_1_std:.1%}")
-print(f"2个标准差内({mean_score-2*std_score:.0f}-{mean_score+2*std_score:.0f}分): {within_2_std:.1%}")
+within_1_std = 0  # 替换这行代码
 
-# 找出"异常"成绩（超过2个标准差）
-abnormal_scores = exam_scores[(exam_scores < mean_score - 2*std_score) | 
-                              (exam_scores > mean_score + 2*std_score)]
-print(f"\n'异常'成绩（超过2个标准差）: {len(abnormal_scores)}个")
+# TODO 3.2: 计算2个标准差范围内的学生比例
+# 提示：类似上面，但是用 2*std_score
+
+within_2_std = 0  # 替换这行代码
+
+print(f"\n验证68-95-99.7法则:")
+print(f"1个标准差内: {within_1_std:.1%} (理论值68%)")
+print(f"2个标准差内: {within_2_std:.1%} (理论值95%)")
+
+# TODO 3.3: 找出"异常"成绩（超过2个标准差的成绩）
+# 提示：使用条件 (exam_scores < mean_score - 2*std_score) | (exam_scores > mean_score + 2*std_score)
+
+abnormal_scores = []  # 替换这行代码
+
+print(f"\n'异常'成绩个数: {len(abnormal_scores)}")
 if len(abnormal_scores) > 0:
-    print(f"具体分数: {abnormal_scores.round(1)}")
-
-# 简单可视化
-plt.figure(figsize=(10, 6))
-plt.hist(exam_scores, bins=20, alpha=0.7, color='lightblue', density=True)
-plt.axvline(mean_score, color='red', linestyle='-', linewidth=2, label=f'平均分: {mean_score:.1f}')
-plt.axvline(mean_score - std_score, color='orange', linestyle='--', label='±1σ')
-plt.axvline(mean_score + std_score, color='orange', linestyle='--')
-plt.axvline(mean_score - 2*std_score, color='green', linestyle='--', label='±2σ')
-plt.axvline(mean_score + 2*std_score, color='green', linestyle='--')
-
-plt.xlabel('考试成绩')
-plt.ylabel('概率密度')
-plt.title('考试成绩分布')
-plt.legend()
-plt.grid(True, alpha=0.3)
-plt.show()
+    print(f"具体异常分数: {abnormal_scores.round(1)}")
 
 print()
 
 # ==========================================
-# 练习总结
+# 练习完成检查
 # ==========================================
-print("🎉 练习完成！")
+print("🎉 练习完成检查")
 print("=" * 30)
-print("今天你学会了：")
-print("1. 计算平均值、中位数、标准差")
-print("2. 比较不同数据组的特征")
-print("3. 应用正态分布判断异常值")
+print("请检查你是否完成了：")
+print("□ 练习1：计算了平均值、中位数、标准差")
+print("□ 练习2：比较了两组数据的稳定性")
+print("□ 练习3：应用了正态分布找异常值")
 print()
-print("💡 关键收获：")
-print("• 标准差帮我们理解数据的稳定性")
-print("• 正态分布的68-95-99.7法则很实用")
-print("• 数据分析就是用数字讲故事")
-print()
-print("🚀 准备好学习第5天的内容了吗？")
+print("💡 如果遇到困难，可以：")
+print("1. 回顾notebook中的例子")
+print("2. 查看下面的提示")
+print("3. 问我具体的问题")
 
 # ==========================================
-# 可选挑战（时间充裕的话）
+# 提示区域（如果卡住了可以参考）
 # ==========================================
-print("\n🌟 可选挑战（时间充裕的话）")
-print("-" * 20)
-print("尝试分析自己的数据：")
-print("1. 记录一周的睡眠时间，计算平均值和标准差")
-print("2. 记录每天的步数，看看是否符合正态分布")
-print("3. 分析手机使用时间的变化趋势")
+print("\n" + "="*50)
+print("💡 提示区域（卡住了再看）")
+print("="*50)
+
+print("\n📝 练习1提示:")
+print("mean_salary = np.mean(salaries)")
+print("median_salary = np.median(salaries)")
+print("std_salary = np.std(salaries)")
+
+print("\n📝 练习2提示:")
+print("mean_A = np.mean(dept_A)")
+print("std_A = np.std(dept_A)")
+print("# 标准差小的部门更稳定")
+
+print("\n📝 练习3提示:")
+print("# 1个标准差内的比例:")
+print("condition = (exam_scores >= mean_score - std_score) & (exam_scores <= mean_score + std_score)")
+print("within_1_std = np.sum(condition) / len(exam_scores)")
 print()
-print("记住：统计学就在我们身边！") 
+print("# 异常值:")
+print("abnormal_scores = exam_scores[(exam_scores < mean_score - 2*std_score) | (exam_scores > mean_score + 2*std_score)]")
+
+print("\n🎯 记住：先自己尝试，再看提示！")
+print("🚀 完成后你就掌握了统计学的核心技能！") 
