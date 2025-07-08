@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-第4天编程练习：统计学基础（练习模板）
+第4天编程练习：统计学基础
 时间：15-25分钟
 目标：练习今天学的3个概念
 
@@ -32,15 +32,12 @@ print("员工月薪数据:", salaries)
 print()
 
 # TODO 1.1: 计算平均值
-# 提示：使用 np.mean(salaries)
 mean_salary = 0  # 替换这行代码
 
 # TODO 1.2: 计算中位数
-# 提示：使用 np.median(salaries)
 median_salary = 0  # 替换这行代码
 
 # TODO 1.3: 计算标准差
-# 提示：使用 np.std(salaries)
 std_salary = 0  # 替换这行代码
 
 print(f"平均薪资: {mean_salary:.1f}千元")
@@ -101,16 +98,9 @@ print(f"平均分: {mean_score:.1f}")
 print(f"标准差: {std_score:.1f}")
 
 # TODO 3.1: 计算1个标准差范围内的学生比例
-# 提示：
-# 1. 先计算条件：(exam_scores >= mean_score - std_score) & (exam_scores <= mean_score + std_score)
-# 2. 用 np.sum() 计算满足条件的个数
-# 3. 除以总数 len(exam_scores) 得到比例
-
 within_1_std = 0  # 替换这行代码
 
 # TODO 3.2: 计算2个标准差范围内的学生比例
-# 提示：类似上面，但是用 2*std_score
-
 within_2_std = 0  # 替换这行代码
 
 print(f"\n验证68-95-99.7法则:")
@@ -118,8 +108,6 @@ print(f"1个标准差内: {within_1_std:.1%} (理论值68%)")
 print(f"2个标准差内: {within_2_std:.1%} (理论值95%)")
 
 # TODO 3.3: 找出"异常"成绩（超过2个标准差的成绩）
-# 提示：使用条件 (exam_scores < mean_score - 2*std_score) | (exam_scores > mean_score + 2*std_score)
-
 abnormal_scores = []  # 替换这行代码
 
 print(f"\n'异常'成绩个数: {len(abnormal_scores)}")
@@ -138,10 +126,7 @@ print("□ 练习1：计算了平均值、中位数、标准差")
 print("□ 练习2：比较了两组数据的稳定性")
 print("□ 练习3：应用了正态分布找异常值")
 print()
-print("💡 如果遇到困难，可以：")
-print("1. 回顾notebook中的例子")
-print("2. 查看下面的提示")
-print("3. 问我具体的问题")
+print("💡 如果遇到困难，可以查看下面的提示")
 
 # ==========================================
 # 提示区域（如果卡住了可以参考）
