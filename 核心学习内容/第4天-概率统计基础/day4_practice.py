@@ -32,13 +32,13 @@ print("员工月薪数据:", salaries)
 print()
 
 # TODO 1.1: 计算平均值
-mean_salary = 0  # 替换这行代码
+mean_salary = np.mean(salaries)  # 替换这行代码
 
 # TODO 1.2: 计算中位数
-median_salary = 0  # 替换这行代码
+median_salary = np.median(salaries)  # 替换这行代码
 
 # TODO 1.3: 计算标准差
-std_salary = 0  # 替换这行代码
+std_salary = np.std(salaries)  # 替换这行代码
 
 print(f"平均薪资: {mean_salary:.1f}千元")
 print(f"中位数薪资: {median_salary:.1f}千元")
@@ -48,7 +48,7 @@ print(f"薪资标准差: {std_salary:.1f}千元")
 print("\n🤔 思考：为什么平均值比中位数大？")
 print("你的答案：")  
 # TODO 1.4: 在这里写出你的理解
-
+print("平均值比中位数大，因为平均值考虑了所有数据，而中位数只考虑了中间位置的数据，对于有异常值的情况下，平均值会受到异常值的影响，而中位数不会。") 
 print()
 
 # ==========================================
@@ -65,19 +65,19 @@ print("部门A满意度:", dept_A)
 print("部门B满意度:", dept_B)
 
 # TODO 2.1: 计算部门A的平均值和标准差
-mean_A = 0  # 替换这行代码
-std_A = 0   # 替换这行代码
+mean_A = np.mean(dept_A)  # 替换这行代码
+std_A = np.std(dept_A)    # 替换这行代码
 
 # TODO 2.2: 计算部门B的平均值和标准差
-mean_B = 0  # 替换这行代码
-std_B = 0   # 替换这行代码
+mean_B = np.mean(dept_B)  # 替换这行代码
+std_B = np.std(dept_B)    # 替换这行代码
 
 print(f"\n部门A: 平均{mean_A:.1f}分, 标准差{std_A:.1f}")
 print(f"部门B: 平均{mean_B:.1f}分, 标准差{std_B:.1f}")
 
 # TODO 2.3: 分析哪个部门更稳定
 print("\n你的分析：")
-# 在这里写出你的分析
+print("部门A的平均值和标准差都比部门B小，所以部门A更稳定。方差越小的数据，越稳定。")
 
 print()
 
@@ -98,17 +98,18 @@ print(f"平均分: {mean_score:.1f}")
 print(f"标准差: {std_score:.1f}")
 
 # TODO 3.1: 计算1个标准差范围内的学生比例
-within_1_std = 0  # 替换这行代码
+condition = (exam_scores >= mean_score - std_score) & (exam_scores <= mean_score + std_score)
+within_1_std = np.sum(condition) / len(exam_scores)  # 替换这行代码
 
 # TODO 3.2: 计算2个标准差范围内的学生比例
-within_2_std = 0  # 替换这行代码
+within_2_std = np.sum((exam_scores >= mean_score - 2*std_score) & (exam_scores <= mean_score + 2*std_score))/len(exam_scores)  # 替换这行代码
 
 print(f"\n验证68-95-99.7法则:")
 print(f"1个标准差内: {within_1_std:.1%} (理论值68%)")
 print(f"2个标准差内: {within_2_std:.1%} (理论值95%)")
 
 # TODO 3.3: 找出"异常"成绩（超过2个标准差的成绩）
-abnormal_scores = []  # 替换这行代码
+abnormal_scores = exam_scores[(exam_scores < mean_score - 2*std_score) | (exam_scores > mean_score + 2*std_score)]  # 替换这行代码
 
 print(f"\n'异常'成绩个数: {len(abnormal_scores)}")
 if len(abnormal_scores) > 0:
