@@ -5,6 +5,7 @@
 目标：练习4种基本图表的绘制
 """
 
+from statistics import correlation
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -37,6 +38,13 @@ print("一周网站访问量数据:", visits)
 # - 添加网格线
 
 # 你的代码：
+plt.figure(figsize=(10, 6))
+plt.plot(days, visits, 'o-', linewidth=2)
+plt.title('网站一周访问量趋势')
+plt.xlabel('日期')
+plt.ylabel('访问量')
+plt.grid(True)
+plt.show()
 
 
 print("完成折线图练习！")
@@ -62,7 +70,15 @@ print("产品销量数据:", sales)
 # - 为每个柱子添加数值标签
 
 # 你的代码：
-
+plt.figure(figsize=(10, 6))
+bars = plt.bar(products, sales)
+plt.title('产品销量对比')
+plt.xlabel('产品')
+plt.ylabel('销量')
+for bar,value in zip(bars,sales):
+    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 10, f'{value}', ha='center')
+plt.grid(True)
+plt.show()
 
 print("完成柱状图练习！")
 print()
@@ -88,6 +104,15 @@ print("销售额数据:", revenue)
 # - 计算并输出相关系数
 
 # 你的代码：
+plt.figure(figsize=(10, 6))
+plt.scatter(ad_spend, revenue, s=100)
+plt.title('广告投入与销售额关系')
+plt.xlabel('广告投入（万元）')
+plt.ylabel('销售额（万元）')
+plt.grid(True)
+correlation = np.corrcoef(ad_spend,revenue)[0][1]
+print(f"广告投入与销售额相关系数: {correlation:.3f}")
+plt.show()
 
 
 print("完成散点图练习！")
@@ -116,6 +141,18 @@ print(f"平均工作年限: {np.mean(work_years):.1f}年")
 # - 分析并输出不同年限段的员工数量
 
 # 你的代码：
+plt.figure(figsize=(10, 6))
+plt.hist(work_years, bins=10, edgecolor='black')
+plt.title('员工工作年限分布')
+plt.xlabel('工作年限（年）')
+plt.ylabel('人数')
+plt.grid(True)
+plt.show()
+
+new_employees = np.sum(work_years < 2)
+experienced = np.sum(work_years >= 10)
+print(f"新员工（<2年）: {new_employees}人")
+print(f"资深员工（≥10年）: {experienced}人")
 
 
 print("完成直方图练习！")
