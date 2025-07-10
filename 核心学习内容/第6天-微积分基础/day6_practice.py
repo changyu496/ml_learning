@@ -30,13 +30,13 @@ def f(x):
 # TODO 1: 计算导数 f'(x) = 3x² - 3
 def f_derivative(x):
     # 你的代码：计算 f(x) = x³ - 3x + 1 的导数
-    pass
+    return 3*x**2 - 3
 
 # 测试数据
 x_test = 2
 print(f"测试点 x = {x_test}")
 print(f"f({x_test}) = {f(x_test)}")
-# print(f"f'({x_test}) = {f_derivative(x_test)}")  # 取消注释测试
+print(f"f'({x_test}) = {f_derivative(x_test)}")  # 取消注释测试
 
 # TODO 2: 可视化函数和导数
 # 要求：
@@ -46,7 +46,14 @@ print(f"f({x_test}) = {f(x_test)}")
 # - 标记导数为0的点（极值点）
 
 # 你的代码：
-
+x = np.linspace(-3,3,100)
+plt.subplot(1,2,1)
+plt.plot(x,f(x))
+plt.title('原函数')
+plt.subplot(1,2,2)
+plt.plot(x,f_derivative(x))
+plt.title('导数函数')
+plt.show()
 
 print("完成导数练习！")
 print()
@@ -65,19 +72,19 @@ def f_2d(x, y):
 def partial_x(x, y):
     # 对x的偏导数：∂f/∂x = 2x + 2y
     # 你的代码：
-    pass
+    return 2*x + 2*y
 
 def partial_y(x, y):
     # 对y的偏导数：∂f/∂y = 2y + 2x
     # 你的代码：
-    pass
+    return 2*y + 2*x
 
 # 测试偏导数
 x_test, y_test = 1, 2
 print(f"测试点 ({x_test}, {y_test})")
 print(f"f({x_test}, {y_test}) = {f_2d(x_test, y_test)}")
-# print(f"∂f/∂x = {partial_x(x_test, y_test)}")  # 取消注释测试
-# print(f"∂f/∂y = {partial_y(x_test, y_test)}")  # 取消注释测试
+print(f"∂f/∂x = {partial_x(x_test, y_test)}")  # 取消注释测试
+print(f"∂f/∂y = {partial_y(x_test, y_test)}")  # 取消注释测试
 
 print("完成偏导数练习！")
 print()
@@ -93,7 +100,7 @@ def gradient(x, y):
     # 梯度是所有偏导数组成的向量
     # grad_f = [∂f/∂x, ∂f/∂y]
     # 你的代码：
-    pass
+    return [partial_x(x,y),partial_y(x,y)]
 
 # TODO 5: 梯度可视化
 # 要求：
@@ -102,7 +109,12 @@ def gradient(x, y):
 # - 观察梯度指向函数增长最快的方向
 
 # 你的代码：
-
+x_range = np.linspace(-3,3,100)
+y_range = np.linspace(-3,3,100)
+X,Y = np.meshgrid(x_range,y_range)
+Z = f_2d(X,Y)
+plt.contour(X,Y,Z)
+plt.show()
 
 print("完成梯度练习！")
 print()
@@ -138,7 +150,7 @@ def gradient_descent():
         # TODO: 更新 x
         # x = x - learning_rate * grad
         # 你的代码：
-        
+        x = x - learning_rate * grad
         # 如果梯度很小，说明接近最小值
         if abs(grad) < 0.001:
             print(f"收敛！最小值点约为 x = {x:.3f}")
@@ -147,7 +159,7 @@ def gradient_descent():
     return x
 
 # 运行梯度下降
-# final_x = gradient_descent()  # 取消注释运行
+final_x = gradient_descent()  # 取消注释运行
 
 print("完成梯度下降练习！")
 print()
