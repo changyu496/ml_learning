@@ -76,6 +76,7 @@ def simple_gradient_descent(start_point, learning_rate, num_iterations):
     """
     # TODO: 你的实现
     pass
+    
 
 # 测试你的实现
 result = simple_gradient_descent([0, 0], 0.1, 20)
