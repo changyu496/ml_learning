@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>使用说明</title>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        blockquote {
+            border-left: 4px solid #3498db;
+            margin: 0;
+            padding-left: 20px;
+            color: #555;
+            font-style: italic;
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .emoji {
+            font-size: 1.2em;
+        }
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+            body {
+                margin: 0;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">保存为PDF</button>
+    <h1>🚀 通勤学习材料使用说明</h1>
+
+<h2>📱 快速开始</h2>
+
+<h3>1. 直接阅读Markdown文件</h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1"># 在项目目录中查看文件</span>
+ls<span class="w"> </span>通勤学习材料/
+</code></pre>
+</div>
+
+<h3>2. 转换为PDF（推荐）</h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1"># 进入通勤学习材料目录</span>
+<span class="nb">cd</span><span class="w"> </span>通勤学习材料/
+
+<span class="c1"># 运行转换脚本</span>
+./convert_to_pdf.sh
+</code></pre>
+</div>
+
+<h3>3. 手动转换PDF</h3>
+
+<p>如果自动脚本不工作，可以手动转换：</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1"># 安装pandoc</span>
+brew<span class="w"> </span>install<span class="w"> </span>pandoc
+
+<span class="c1"># 转换单个文件</span>
+pandoc<span class="w"> </span>01_数学基础速查手册.md<span class="w"> </span>-o<span class="w"> </span>01_数学基础速查手册.pdf
+
+<span class="c1"># 转换所有文件</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.md<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>pandoc<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">file</span><span class="p">%.md</span><span class="si">}</span><span class="s2">.pdf&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre>
+</div>
+
+<h2>📚 文件说明</h2>
+
+<ul>
+<li><strong>README.md</strong> - 总索引，查看所有材料</li>
+<li><strong>01_数学基础速查手册.md</strong> - 快速复习数学概念</li>
+<li><strong>02_机器学习概念入门.md</strong> - ML理论预习</li>
+<li><strong>03_学习进度和重点回顾.md</strong> - 个人学习报告</li>
+<li><strong>04_常见问题和答疑集锦.md</strong> - 40个常见问题解答</li>
+<li><strong>05_学习清单和复习计划.md</strong> - 具体学习任务</li>
+</ul>
+
+<h2>💡 使用建议</h2>
+
+<h3>通勤时间安排</h3>
+
+<ul>
+<li><strong>5-10分钟</strong>：快速复习清单</li>
+<li><strong>10-20分钟</strong>：常见问题解答</li>
+<li><strong>20-30分钟</strong>：概念入门学习</li>
+<li><strong>30分钟以上</strong>：系统复习</li>
+</ul>
+
+<h3>设备选择</h3>
+
+<ul>
+<li><strong>手机</strong>：PDF阅读器</li>
+<li><strong>iPad</strong>：支持标注的PDF应用</li>
+<li><strong>电脑</strong>：Markdown编辑器</li>
+</ul>
+
+<h3>学习策略</h3>
+
+<ol>
+<li>先看README.md了解整体结构</li>
+<li>根据时间选择合适的材料</li>
+<li>遇到问题查阅04_常见问题</li>
+<li>定期复习01_数学基础速查手册</li>
+<li>使用05_学习清单跟踪进度</li>
+</ol>
+
+<h2>🔧 常见问题</h2>
+
+<h3>Q: 如何同步到手机？</h3>
+
+<p>A: 将PDF文件上传到云盘（iCloud、Google Drive等），然后在手机上下载</p>
+
+<h3>Q: 推荐的PDF阅读器？</h3>
+
+<p>A: 
+- iOS：GoodReader、PDF Expert
+- Android：Adobe Reader、Foxit Reader
+- 跨平台：Microsoft Edge、Chrome</p>
+
+<h3>Q: 如何做笔记？</h3>
+
+<p>A: 使用支持标注的PDF阅读器，或者准备笔记本记录问题</p>
+
+<h2>📈 学习效果提升</h2>
+
+<h3>每日习惯</h3>
+
+<ul>
+<li>通勤前：确定今天的学习目标</li>
+<li>通勤中：专注阅读，避免分心</li>
+<li>通勤后：记录问题和心得</li>
+</ul>
+
+<h3>每周回顾</h3>
+
+<ul>
+<li>检查学习进度</li>
+<li>更新个人学习报告</li>
+<li>调整下周学习计划</li>
+</ul>
+
+<h3>每月评估</h3>
+
+<ul>
+<li>全面复习所有材料</li>
+<li>评估学习效果</li>
+<li>规划下阶段目标</li>
+</ul>
+
+<p>祝你通勤学习愉快！🚀 </p>
+
+</body>
+</html>
